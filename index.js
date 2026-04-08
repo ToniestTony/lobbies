@@ -23,6 +23,8 @@ function Player(id){
 	this.c="black";
     this.x=0;
     this.y=0;
+	this.score=0;
+	this.projectiles=[];
 	this.r=0;
 	this.time=0;
 	this.state="";
@@ -65,10 +67,21 @@ io.on('connection', (socket) => {
 		socket.to(id).emit("refuse",socket.id)
     });
 	
-	socket.on("accept",function(id,time){
-		socket.to(id).emit("accept",socket.id,time)
+	socket.on("accept",function(id){
+		socket.to(id).emit("accept",socket.id)
     });
 	
+	socket.on("delay",function(id){
+		socket.to(id).emit("delay",socket.id)
+    });
+	
+	socket.on("delay2",function(id){
+		socket.to(id).emit("delay2",socket.id)
+    });
+	
+	socket.on("addScore",function(id){
+		socket.to(id).emit("addScore",socket.id)
+    });
 	/*
 	socket.on("sendCool",function(id){
 		socket.to(id).emit("cool",socket.id);
