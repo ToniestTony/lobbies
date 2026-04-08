@@ -82,6 +82,14 @@ io.on('connection', (socket) => {
 	socket.on("addScore",function(id){
 		socket.to(id).emit("addScore",socket.id)
     });
+	
+	socket.on("map",function(id,walls,spawns){
+		socket.to(id).emit("map",socket.id,walls,spawns)
+    });
+	
+	socket.on("deleteProjectile",function(id){
+		socket.to(id).emit("deleteProjectile",socket.id)
+    });
 	/*
 	socket.on("sendCool",function(id){
 		socket.to(id).emit("cool",socket.id);
