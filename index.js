@@ -15,6 +15,9 @@ const io = socket(server);
 
 var players={};
 
+var lobbies=[];
+var hosts=[];
+
 var num=0;
 
 function Player(id){
@@ -29,6 +32,8 @@ function Player(id){
 	this.time=0;
 	this.state="";
 	this.playing=false;
+	this.lobby=undefined;
+	this.host=undefined;
 }
 
 io.on('connection', (socket) => {
@@ -40,6 +45,19 @@ io.on('connection', (socket) => {
 	
 	
 	socket.on("disconnect",function(){
+		var index=hosts.indexOf(socket.id);
+		var lobby=undefined;
+		if(index>=0){
+			lobby=lobbies[index];
+			lobbies.splice(index,1);
+			hosts.splice(index,1);
+		}
+		
+		if(lobby!=undefined){
+			socket.to(lobby).emit("leave",lobbies)
+			socket.broadcast.emit("refresh",lobbies)
+		}
+		
 		delete players[socket.id]
 		console.log('Player disconnected as '+socket.id+' (players: '+Object.keys(players).length+')');
 		socket.broadcast.emit("disconnected",socket.id)
@@ -83,12 +101,61 @@ io.on('connection', (socket) => {
 		socket.to(id).emit("addScore",socket.id)
     });
 	
-	socket.on("map",function(id,walls,spawns){
-		socket.to(id).emit("map",socket.id,walls,spawns)
+	socket.on("endRound",function(lobby){
+		socket.to(lobby).emit("endRound",socket.id)
+    });
+	
+	socket.on("map",function(lobby,walls,spawns){
+		socket.to(lobby).emit("map",socket.id,walls,spawns)
     });
 	
 	socket.on("deleteProjectile",function(id){
 		socket.to(id).emit("deleteProjectile",socket.id)
+    });
+	
+	//LOBBIES
+	socket.on("start",function(arr){
+		for(var i=0;i<arr.length;i++){
+			var id=arr[i];
+			socket.to(id).emit("start",socket.id,(i+1))
+		}
+		
+    });
+	
+	socket.on("refresh",function(){
+		socket.emit("refresh",lobbies)
+    });
+	
+	socket.on("create",function(lobby){
+		lobbies.push(lobby);
+		hosts.push(socket.id);
+		socket.join(lobby);
+		socket.broadcast.emit("refresh",lobbies)
+    });
+	
+	socket.on("delete",function(lobby){
+		var index=lobbies.indexOf(lobby);
+		if(index>=0){
+			lobbies.splice(index,1);
+			hosts.splice(index,1);
+		}
+		socket.leave(lobby);
+		
+		socket.to(lobby).emit("leave",lobbies)
+		socket.broadcast.emit("refresh",lobbies)
+    });
+	
+	socket.on("join",function(lobby){
+		socket.join(lobby);
+    });
+	
+	socket.on("leave",function(lobby){
+		socket.leave(lobby);
+		socket.emit("leave");
+    });
+	
+	socket.on("dead",function(id){
+		socket.to(id).emit("dead",socket.id)
     });
 	/*
 	socket.on("sendCool",function(id){
