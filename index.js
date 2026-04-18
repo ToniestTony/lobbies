@@ -23,11 +23,12 @@ var num=0;
 function Player(id){
     this.id=id;
     this.name="";
-	this.c="black";
+	this.c=[0,0,255];
     this.x=0;
     this.y=0;
 	this.score=0;
 	this.projectiles=[];
+	this.powerup="";
 	this.r=0;
 	this.time=0;
 	this.state="";
@@ -69,9 +70,9 @@ io.on('connection', (socket) => {
     });
 	
 	
-	socket.on('chat message', msg => {
-		io.emit('chat message', msg);
-	});
+	socket.on("chat message",function(msg,color){
+		io.emit("chat message",msg,color)
+    });
 	
 	socket.on("invite",function(id){
 		socket.to(id).emit("invite",socket.id)
@@ -109,8 +110,16 @@ io.on('connection', (socket) => {
 		socket.to(lobby).emit("map",socket.id,walls,spawns)
     });
 	
-	socket.on("deleteProjectile",function(id){
-		socket.to(id).emit("deleteProjectile",socket.id)
+	socket.on("deleteProjectile",function(id,obj){
+		socket.to(id).emit("deleteProjectile",socket.id,obj)
+    });
+	
+	socket.on("spawnPowerup",function(lobby,powerup){
+		socket.to(lobby).emit("spawnPowerup",powerup)
+    });
+	
+	socket.on("deletePowerup",function(lobby,obj){
+		socket.to(lobby).emit("deletePowerup",obj)
     });
 	
 	//LOBBIES
