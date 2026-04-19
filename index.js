@@ -106,8 +106,8 @@ io.on('connection', (socket) => {
 		socket.to(lobby).emit("endRound",socket.id)
     });
 	
-	socket.on("map",function(lobby,walls,spawns){
-		socket.to(lobby).emit("map",socket.id,walls,spawns)
+	socket.on("map",function(lobby,walls,spawns,size){
+		socket.to(lobby).emit("map",socket.id,walls,spawns,size)
     });
 	
 	socket.on("deleteProjectile",function(id,obj){
@@ -120,6 +120,10 @@ io.on('connection', (socket) => {
 	
 	socket.on("deletePowerup",function(lobby,obj){
 		socket.to(lobby).emit("deletePowerup",obj)
+    });
+	
+	socket.on("deleteWall",function(lobby,obj){
+		socket.to(lobby).emit("deleteWall",obj)
     });
 	
 	//LOBBIES
