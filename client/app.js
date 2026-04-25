@@ -40,7 +40,7 @@
 		h:640,
 		originalW:0,
 		originalH:0,
-		title:"Tank lobbies v0.8",
+		title:"Tank lobbies v0.81",
 		maximize:true,
 		ratio:false,
 		socket:true,
@@ -635,7 +635,7 @@ obj.setup=function(){	/*Setup runs once when the game starts*/
 };obj.update=function(){	/*Update runs at the fps specified*/
   
 	jte.draw(this);
-};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","  "];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\tjte.draw(this);"];jte.objects.push(obj);var obj=new JTEObject(0,80,390,70,[0,0,0],0,1,'{"text":"Local","size":48,"align":"center","font":"Consolas"}',true,'Start','[""]',false,-1,'Obj38');/*Attributes and methods go here*/
+};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","  "];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\tjte.draw(this);"];jte.objects.push(obj);var obj=new JTEObject(0,150,390,70,[0,0,0],0,1,'{"text":"Local","size":48,"align":"center","font":"Consolas"}',true,'Start','[""]',false,-1,'Obj38');/*Attributes and methods go here*/
 
 ;
 obj.setup=function(){	/*Setup runs once when the game starts*/
@@ -647,7 +647,7 @@ obj.setup=function(){	/*Setup runs once when the game starts*/
 	jt.camActive(true);
   jt.camReset();     
 	jte.draw(this);
-};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","  "];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  //var player={x:64,y:32,c:[0,0,255],r:jt.frames()*6};","  //jt.getObject(\"Game\").drawPlayer(player);  ","  ","\tjt.camActive(true);","  jt.camReset();     ","\tjte.draw(this);"];jte.objects.push(obj);var obj=new JTEObject(410,80,390,70,[0,0,0],0,1,'{"text":"Online","size":48,"align":"center","font":"Consolas"}',true,'Start','[""]',false,-1,'Obj39');/*Attributes and methods go here*/
+};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","  "];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  //var player={x:64,y:32,c:[0,0,255],r:jt.frames()*6};","  //jt.getObject(\"Game\").drawPlayer(player);  ","  ","\tjt.camActive(true);","  jt.camReset();     ","\tjte.draw(this);"];jte.objects.push(obj);var obj=new JTEObject(410,150,390,70,[0,0,0],0,1,'{"text":"Online","size":48,"align":"center","font":"Consolas"}',true,'Start','[""]',false,-1,'Obj39');/*Attributes and methods go here*/
 
 ;
 obj.setup=function(){	/*Setup runs once when the game starts*/
@@ -3039,7 +3039,7 @@ obj.setup=function(){	/*Setup runs once when the game starts*/
   */
   
 	//jt.drawObject(this);
-};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","\tvar client=jt.getObject(\"Client\");","  ","  var btnMarginX=40;","  var btnMarginY=10;  ","  var btnH=40;","  ","  jt.fontSize(20);","  /*","  var text=\"Test\";","  if(client.clientObj.lobby!=undefined){","    text=client.clientObj.lobby;","  }","  jt.text(text,jt.w()/2,jt.h()-jt.fontSize(),\"black\",\"center\");","  ","  ","  if(client.inviteReceived!=undefined){","   \tjt.rect(0,jt.h()-btnH,jt.w(),btnH,[0,0,0]);","    ","    var name=client.serverObjs[client.inviteReceived].name;","    var c=client.serverObjs[client.inviteReceived].c;","    jt.text(\"Invite received from \"+name,10,jt.h()-btnH/2-jt.fontSize()/2,\"white\",\"left\");","    ","    //Refuse button","    var btnMargin=20;","    var btnW=80;","    var btnSmallH=30;","    var btn={x:jt.w()-btnMargin-btnW,y:jt.h()-btnH+(btnH-btnSmallH)/2,w:btnW,h:btnSmallH,c:[127,127,127],text:\"Refuse\"};","    ","    if(jt.mIn(btn)){","      btn.c=[200,200,200];","    }","    if(jt.mPress(btn) || jt.tPress(btn)){","      client.socket.emit(\"refuse\",client.inviteReceived);","      client.playing=undefined;","      client.inviteReceived=undefined;","    }","      ","    jt.rect(btn);","    jt.text(btn.text,btn.x+btn.w/2,btn.y+(btn.h/2-jt.fontSize()/2),\"black\",\"center\")","    ","    //Accept button","    btn={x:jt.w()-btnMargin*2-btnW*2,y:jt.h()-btnH+(btnH-btnSmallH)/2,w:btnW,h:btnSmallH,c:[127,127,127],text:\"Accept\"};","    ","    if(jt.mIn(btn)){","      btn.c=[200,200,200];","    }","    if(jt.mPress(btn) || jt.tPress(btn)){","      client.waitTime=client.waitSecond*60;","      client.delayTime=0;","      client.delaySent=true;      ","      client.accepted=true; ","      client.socket.emit(\"accept\",client.inviteReceived);","      client.playing=undefined;","      //client.inviteReceived=undefined;","    }","      ","    jt.rect(btn);","    jt.text(btn.text,btn.x+btn.w/2,btn.y+(btn.h/2-jt.fontSize()/2),\"black\",\"center\")","    ","  }else if(client.inviteSent!=undefined){","   \tjt.rect(0,jt.h()-btnH,jt.w(),btnH,[0,0,0]);","    ","    var name=client.serverObjs[client.inviteSent].name;","    var c=client.serverObjs[client.inviteSent].c;","    jt.text(\"Invite sent to \"+name,10,jt.h()-btnH/2-jt.fontSize()/2,\"white\",\"left\");","    ","    var btnMargin=20;","    var btnW=80;","    var btnSmallH=30;","    var btn={x:jt.w()-btnMargin-btnW,y:jt.h()-btnH+(btnH-btnSmallH)/2,w:btnW,h:btnSmallH,c:[127,127,127],text:\"Cancel\"};","    ","    if(jt.mIn(btn)){","      btn.c=[200,200,200];","    }","    if(jt.mPress(btn) || jt.tPress(btn)){","      client.socket.emit(\"cancel\",client.inviteSent);","      client.playing=undefined;","      client.inviteSent=undefined;","    }","      ","    jt.rect(btn);","    jt.text(btn.text,btn.x+btn.w/2,btn.y+(btn.h/2-jt.fontSize()/2),\"black\",\"center\")","  }","  */","  ","\t//jt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(720,0,80,30,[0,0,0],0,1,'{"text":"v0.8","size":23,"font":"Consolas","align":"right"}',true,'Start','[""]',false,-1,'Obj16');/*Attributes and methods go here*/
+};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","\tvar client=jt.getObject(\"Client\");","  ","  var btnMarginX=40;","  var btnMarginY=10;  ","  var btnH=40;","  ","  jt.fontSize(20);","  /*","  var text=\"Test\";","  if(client.clientObj.lobby!=undefined){","    text=client.clientObj.lobby;","  }","  jt.text(text,jt.w()/2,jt.h()-jt.fontSize(),\"black\",\"center\");","  ","  ","  if(client.inviteReceived!=undefined){","   \tjt.rect(0,jt.h()-btnH,jt.w(),btnH,[0,0,0]);","    ","    var name=client.serverObjs[client.inviteReceived].name;","    var c=client.serverObjs[client.inviteReceived].c;","    jt.text(\"Invite received from \"+name,10,jt.h()-btnH/2-jt.fontSize()/2,\"white\",\"left\");","    ","    //Refuse button","    var btnMargin=20;","    var btnW=80;","    var btnSmallH=30;","    var btn={x:jt.w()-btnMargin-btnW,y:jt.h()-btnH+(btnH-btnSmallH)/2,w:btnW,h:btnSmallH,c:[127,127,127],text:\"Refuse\"};","    ","    if(jt.mIn(btn)){","      btn.c=[200,200,200];","    }","    if(jt.mPress(btn) || jt.tPress(btn)){","      client.socket.emit(\"refuse\",client.inviteReceived);","      client.playing=undefined;","      client.inviteReceived=undefined;","    }","      ","    jt.rect(btn);","    jt.text(btn.text,btn.x+btn.w/2,btn.y+(btn.h/2-jt.fontSize()/2),\"black\",\"center\")","    ","    //Accept button","    btn={x:jt.w()-btnMargin*2-btnW*2,y:jt.h()-btnH+(btnH-btnSmallH)/2,w:btnW,h:btnSmallH,c:[127,127,127],text:\"Accept\"};","    ","    if(jt.mIn(btn)){","      btn.c=[200,200,200];","    }","    if(jt.mPress(btn) || jt.tPress(btn)){","      client.waitTime=client.waitSecond*60;","      client.delayTime=0;","      client.delaySent=true;      ","      client.accepted=true; ","      client.socket.emit(\"accept\",client.inviteReceived);","      client.playing=undefined;","      //client.inviteReceived=undefined;","    }","      ","    jt.rect(btn);","    jt.text(btn.text,btn.x+btn.w/2,btn.y+(btn.h/2-jt.fontSize()/2),\"black\",\"center\")","    ","  }else if(client.inviteSent!=undefined){","   \tjt.rect(0,jt.h()-btnH,jt.w(),btnH,[0,0,0]);","    ","    var name=client.serverObjs[client.inviteSent].name;","    var c=client.serverObjs[client.inviteSent].c;","    jt.text(\"Invite sent to \"+name,10,jt.h()-btnH/2-jt.fontSize()/2,\"white\",\"left\");","    ","    var btnMargin=20;","    var btnW=80;","    var btnSmallH=30;","    var btn={x:jt.w()-btnMargin-btnW,y:jt.h()-btnH+(btnH-btnSmallH)/2,w:btnW,h:btnSmallH,c:[127,127,127],text:\"Cancel\"};","    ","    if(jt.mIn(btn)){","      btn.c=[200,200,200];","    }","    if(jt.mPress(btn) || jt.tPress(btn)){","      client.socket.emit(\"cancel\",client.inviteSent);","      client.playing=undefined;","      client.inviteSent=undefined;","    }","      ","    jt.rect(btn);","    jt.text(btn.text,btn.x+btn.w/2,btn.y+(btn.h/2-jt.fontSize()/2),\"black\",\"center\")","  }","  */","  ","\t//jt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(720,0,80,30,[0,0,0],0,1,'{"text":"v0.81","size":23,"font":"Consolas","align":"right"}',true,'Start','[""]',false,-1,'Obj16');/*Attributes and methods go here*/
 
 ;
 obj.setup=function(){	/*Setup runs once when the game starts*/
@@ -3074,7 +3074,7 @@ obj.setup=function(){	/*Setup runs once when the game starts*/
   
 	
 	jt.drawObject(this);
-};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\t","\tjt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(395,80,10,560,[0,0,0],0,1,'undefined',true,'Start','[""]',false,-1,'Obj37');/*Attributes and methods go here*/
+};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\t","\tjt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(395,150,10,490,[0,0,0],0,1,'undefined',true,'Start','[""]',false,-1,'Obj37');/*Attributes and methods go here*/
 
 ;
 obj.setup=function(){	/*Setup runs once when the game starts*/
@@ -3146,7 +3146,20 @@ obj.setup=function(){	/*Setup runs once when the game starts*/
 };obj.update=function(){	/*Update runs at the fps specified*/
   
 	//jt.drawObject(this);
-};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\t//jt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(0,0,800,40,[0,0,0],0,1,'{"text":"Controls","size":48,"align":"center","font":"Consolas"}',true,'Controls','[""]',false,2,'Controls');/*Attributes and methods go here*/
+};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\t//jt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(0,80,800,30,[0,0,0],0,1,'{"text":"Bonne fete Max !!!","size":32,"font":"Consolas","align":"center"}',true,'Start','[""]',false,-1,'Obj173');/*Attributes and methods go here*/
+obj.startY=0;
+;
+obj.setup=function(){	/*Setup runs once when the game starts*/
+	this.attr.text="Bonne fête Max !!!";
+  this.startY=this.y;
+};obj.update=function(){	/*Update runs at the fps specified*/
+  
+  var size=32+jt.waveY()*16;
+  this.attr.size=size;
+  this.y=this.startY-(jt.waveY()*8)
+	
+	jt.drawObject(this);
+};obj.JTEcode=["/*Attributes and methods go here*/","obj.startY=0;"];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\tthis.attr.text=\"Bonne fête Max !!!\";","  this.startY=this.y;"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","  var size=32+jt.waveY()*16;","  this.attr.size=size;","  this.y=this.startY-(jt.waveY()*8)","\t","\tjt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(0,0,800,40,[0,0,0],0,1,'{"text":"Controls","size":48,"align":"center","font":"Consolas"}',true,'Controls','[""]',false,2,'Controls');/*Attributes and methods go here*/
 obj.checking=false;
 obj.checkingBtn=undefined;
 obj.checkingIndex=0;
