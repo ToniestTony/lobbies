@@ -26,8 +26,10 @@ function Player(id){
 	this.c=[0,0,255];
     this.x=0;
     this.y=0;
+    this.toxic=0;
 	this.score=0;
 	this.projectiles=[];
+	this.powerupTimer=0;
 	this.powerup="";
 	this.r=0;
 	this.time=0;
