@@ -3205,20 +3205,20 @@ obj.setup=function(){	/*Setup runs once when the game starts*/
 };obj.update=function(){	/*Update runs at the fps specified*/
   
 	//jt.drawObject(this);
-};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\t//jt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(-10,-190,800,30,[0,0,0],0,1,'{"text":"Bonne fete Max !!!","size":32,"font":"Consolas","align":"center"}',true,'Start','[""]',false,-1,'Obj173');/*Attributes and methods go here*/
+};obj.JTEcode=["/*Attributes and methods go here*/",""];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","\t//jt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(0,80,800,30,[0,0,0],0,1,'{"text":"Now with random spawns !","size":32,"font":"Consolas","align":"center"}',true,'Start','[""]',false,-1,'Obj173');/*Attributes and methods go here*/
 obj.startY=0;
 ;
 obj.setup=function(){	/*Setup runs once when the game starts*/
-	this.attr.text="Bonne fête Max !!!";
+	//this.attr.text="Bonne fête Max !!!";
   this.startY=this.y;
 };obj.update=function(){	/*Update runs at the fps specified*/
-  
-  var size=32+jt.waveY()*16;
+  var mod=4;
+  var size=32+jt.waveY()*mod;
   this.attr.size=size;
-  this.y=this.startY-(jt.waveY()*8)
+  this.y=this.startY-(jt.waveY()*(mod/2))
 	
 	jt.drawObject(this);
-};obj.JTEcode=["/*Attributes and methods go here*/","obj.startY=0;"];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\tthis.attr.text=\"Bonne fête Max !!!\";","  this.startY=this.y;"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  ","  var size=32+jt.waveY()*16;","  this.attr.size=size;","  this.y=this.startY-(jt.waveY()*8)","\t","\tjt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(0,0,800,40,[0,0,0],0,1,'{"text":"Controls","size":48,"align":"center","font":"Consolas"}',true,'Controls','[""]',false,2,'Controls');/*Attributes and methods go here*/
+};obj.JTEcode=["/*Attributes and methods go here*/","obj.startY=0;"];obj.JTEsetup=["\t/*Setup runs once when the game starts*/","\t//this.attr.text=\"Bonne fête Max !!!\";","  this.startY=this.y;"];obj.JTEupdate=["\t/*Update runs at the fps specified*/","  var mod=4;","  var size=32+jt.waveY()*mod;","  this.attr.size=size;","  this.y=this.startY-(jt.waveY()*(mod/2))","\t","\tjt.drawObject(this);"];jte.objects.push(obj);var obj=new JTEObject(0,0,800,40,[0,0,0],0,1,'{"text":"Controls","size":48,"align":"center","font":"Consolas"}',true,'Controls','[""]',false,2,'Controls');/*Attributes and methods go here*/
 obj.checking=false;
 obj.checkingBtn=undefined;
 obj.checkingIndex=0;
