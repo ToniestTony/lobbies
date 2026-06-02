@@ -40,7 +40,7 @@
 		h:640,
 		originalW:0,
 		originalH:0,
-		title:"Tank lobbies v0.81",
+		title:"Tank lobbies v0.85",
 		maximize:true,
 		ratio:false,
 		socket:true,
