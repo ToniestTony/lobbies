@@ -100,8 +100,9 @@ io.on('connection', (socket) => {
 		socket.to(id).emit("delay2",socket.id)
     });
 	
-	socket.on("addScore",function(id){
-		socket.to(id).emit("addScore",socket.id)
+	socket.on("addScore",function(lobby,id){
+		socket.to(lobby).emit("addScore",id,socket.id)
+		socket.emit("addScore",id,socket.id)
     });
 	
 	socket.on("endRound",function(lobby){
