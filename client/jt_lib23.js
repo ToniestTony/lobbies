@@ -695,7 +695,22 @@ function JT(id,w,h,fps,setupName,updateName,objName,fullScreenBtn,compatibility)
 
                 //add gamepads
 				if(navigator.getGamepads!=null){
-					var gamepads=navigator.getGamepads();
+					var gamepads=[];
+					var nav=navigator.getGamepads();
+					this.context.gamepad.connected=[];
+					for(var i=0;i<4;i++){
+						if(nav[i]!=undefined){
+							gamepads.push(nav[i]);
+							this.context.gamepad.connected.push(true);
+						}
+					}
+					
+					var left=4-gamepads.length;
+					for(var i=0;i<left;i++){
+						gamepads.push(undefined);
+						this.context.gamepad.connected.push(false);
+					}
+					
 					if(gamepads[0]==undefined && gamepads[1]==undefined && gamepads[2]==undefined && gamepads[3]==undefined){
 						//no gamepads
 					}else{
